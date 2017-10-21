@@ -23,8 +23,8 @@ with open('/home/ubuntu/jkpichourly/data/data.txt', 'r') as f:
 	num_raindrops += counted
 	if counted == 0:
 		out += ' ({})'.format(random.choice(zero_quotes))
-	#status = tweeter.PostUpdate(out, random.choice(files))
-	print out
+	status = tweeter.PostUpdate(out, random.choice(files))
+	#print out
 
 with open('/home/ubuntu/jkpichourly/data/data.txt', 'w') as f:
 	f.write(str(num_raindrops))
