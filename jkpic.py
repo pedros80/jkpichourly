@@ -15,8 +15,11 @@ with open('data/data.txt', 'rw') as f:
 	else:
 		s = 's'
 	out = '{} raindrop{} counted'.format(num_raindrops, s)
+	counted = random.randint(0, 100)
+	num_raindrops += counted
+	if counted == 0:
+		out += ' (zero drops given)'
 	status = tweeter.PostUpdate(out, random.choice(files))
-	num_raindrops += random.randint(0, 100)
 
 with open('data/data.txt', 'w') as f:
 	f.write(str(num_raindrops))
