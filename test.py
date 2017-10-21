@@ -1,5 +1,6 @@
 import twitter
 import glob
+import random
 
 tweeter = twitter.Api(consumer_key='RbIQCGFG2DUeCMeByYnOqwQE3',
                   consumer_secret='AnN2klrw9HE628aDWAtPqZowgGD2Dr3s5EJgbUqzcH3VUNPeDN',
@@ -12,6 +13,4 @@ tweeter = twitter.Api(consumer_key='RbIQCGFG2DUeCMeByYnOqwQE3',
 # print(status)
 
 files = glob.glob('img/*.jpg')
-
-for f in files:
-	print f
+status = tweeter.PostUpdate('', random.choice(files))
