@@ -10,8 +10,13 @@ tweeter = twitter.Api(consumer_key='RbIQCGFG2DUeCMeByYnOqwQE3',
 files = glob.glob('img/*.jpg')
 with open('data/data.txt', 'rw') as f:
 	num_raindrops = int(f.read())
-	out = '{} raindrops counted'.format(num_raindrops)
-	status = tweeter.PostUpdate(out, random.choice(files))
+	if num_raindrops == 1:
+		s = ''
+	else:
+		s = 's'
+	out = '{} raindrop{} counted'.format(num_raindrops, s)
+	#status = tweeter.PostUpdate(out, random.choice(files))
+	print out
 	num_raindrops +=1
 
 with open('data/data.txt', 'w') as f:
