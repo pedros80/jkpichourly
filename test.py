@@ -7,10 +7,14 @@ tweeter = twitter.Api(consumer_key='RbIQCGFG2DUeCMeByYnOqwQE3',
                   access_token_key='921528056841416706-pza5BXDuC3rAQhjA3M6fMnoCpsvSjjd',
                   access_token_secret='OQRA49dgEjL6R5rZJaNzzndY07XdEaBaT177pGA3b9D22')
 
-# my_file = '/home/pedros/jkpic/spock.png'
-
-# status = api.PostUpdate('', my_file)
-# print(status)
 
 files = glob.glob('img/*.jpg')
-status = tweeter.PostUpdate('', random.choice(files))
+with open('data/data.txt', 'rw') as f:
+	num_raindrops = int(f.read())
+	out = '{} raindrops counted'.format(num_raindrops)
+	print out
+	#status = tweeter.PostUpdate(out, random.choice(files))
+	num_raindrops +=1
+
+with open('data/data.txt', 'w') as f:
+	f.write(str(num_raindrops))
