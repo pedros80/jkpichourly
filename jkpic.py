@@ -18,7 +18,7 @@ with open('data/data.txt', 'rw') as f:
 		s = 's'
 	out = '{} raindrop{} counted'.format(num_raindrops, s)
 	counted = random.randint(0, 100)
-	if (counted % 6 == 0):
+	if (counted % 5 == 0):
 		counted = 0
 	num_raindrops += counted
 	if counted == 0:
