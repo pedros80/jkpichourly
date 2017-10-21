@@ -9,8 +9,8 @@ tweeter = twitter.Api(consumer_key='RbIQCGFG2DUeCMeByYnOqwQE3',
 
 zero_quotes = ['zero drops given', 'why does it never rain on jason?']
 
-files = glob.glob('img/*.jpg')
-with open('data/data.txt', 'rw') as f:
+files = glob.glob('/home/ubuntu/jkpichourly/img/*.jpg')
+with open('/home/ubuntu/jkpichourly/data/data.txt', 'r') as f:
 	num_raindrops = int(f.read())
 	if num_raindrops == 1:
 		s = ''
@@ -23,8 +23,8 @@ with open('data/data.txt', 'rw') as f:
 	num_raindrops += counted
 	if counted == 0:
 		out += ' ({})'.format(random.choice(zero_quotes))
-	status = tweeter.PostUpdate(out, random.choice(files))
-	#print out
+	#status = tweeter.PostUpdate(out, random.choice(files))
+	print out
 
-with open('data/data.txt', 'w') as f:
+with open('/home/ubuntu/jkpichourly/data/data.txt', 'w') as f:
 	f.write(str(num_raindrops))
