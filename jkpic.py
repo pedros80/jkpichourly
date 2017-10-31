@@ -16,11 +16,11 @@ with open('/home/ubuntu/jkpichourly/data/data.txt', 'r') as f:
 		s = ''
 	else:
 		s = 's'
-	out = '{} raindrop{} counted'.format(num_raindrops, s)
 	counted = random.randint(0, 100)
 	if (counted % 5 == 0):
 		counted = 0
 	num_raindrops += counted
+	out = '{} raindrop{} counted'.format(num_raindrops, s)
 	if counted == 0:
 		out += ' ({})'.format(random.choice(zero_quotes))
 	status = tweeter.PostUpdate(out, random.choice(files))
